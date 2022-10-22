@@ -11,15 +11,17 @@ async function getWeather(location) {
 
     const weatherDescription = weatherData.weather[0].main;
     const temp = (weatherData.main.temp - 273.15).toPrecision(3);
-    const tempMin = (weatherData.main.temp - 273.15).toPrecision(3);
+    const tempFeel = (weatherData.main.feels_like - 273.15).toPrecision(3);
+    const icon = weatherData.weather[0].icon;
 
-    postWeather(location, temp, tempMin, weatherDescription);
+    postWeather(location, temp, tempFeel, weatherDescription, icon);
   } catch {
     const temp = "unknown";
-    const tempMin = "unknown";
+    const tempFeel = "unknown";
     const weatherDescription = "Err";
+    const icon = "10d";
 
-    postWeather(location, temp, tempMin, weatherDescription);
+    postWeather(location, temp, tempFeel, weatherDescription, icon);
   }
 }
 

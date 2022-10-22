@@ -1,13 +1,21 @@
-function postWeather(location, temp, tempMin, describe) {
-  const mainBlock = document.querySelector(".weather-block");
+function postWeather(location, temp, tempFeel, describe, icon) {
+  const locationDiv = document.querySelector(".location");
+  const weatherImg = document.querySelector(".weatherImg");
+  const tempDiv = document.querySelector(".currentTemp");
+  const feelTemp = document.querySelector(".feelTemp");
 
-  const tempDiv = document.createElement("div");
-  tempDiv.innerHTML = `The temperature in ${location} is currently ${temp} degrees Celsius.`;
+  if (describe != "Err") {
+    locationDiv.innerHTML = `${location}`;
+    weatherImg.src = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+    tempDiv.innerHTML = `${temp}`;
+    feelTemp.innerHTML = `${tempFeel}`;
+  } else {
+    locationDiv.innerHTML = `Mars`;
+    weatherImg.src = `https://cdn-icons-png.flaticon.com/512/124/124582.png`;
+    tempDiv.innerHTML = `-65`;
+    feelTemp.innerHTML = `-70`;
+  }
 
-  const minTempDiv = document.createElement("div");
-  minTempDiv.innerHTML = `The minimum temperature of today is ${tempMin} degrees Celsius.`;
-
-  mainBlock.replaceChildren(tempDiv, minTempDiv);
   console.log(weatherDescribe(describe));
 }
 
