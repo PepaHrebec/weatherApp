@@ -68,7 +68,7 @@ body {
   align-items: center;
 }
 
-.searchCity {
+button {
   background-color: rgb(245, 245, 245);
   padding: 5px;
   border-radius: 10px;

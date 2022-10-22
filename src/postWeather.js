@@ -15,8 +15,6 @@ function postWeather(location, temp, tempFeel, describe, icon) {
     tempDiv.innerHTML = `-65`;
     feelTemp.innerHTML = `-70`;
   }
-
-  console.log(weatherDescribe(describe));
 }
 
 function weatherDescribe(weather) {
